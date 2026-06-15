@@ -6,9 +6,11 @@ import {
 } from 'lucide-react';
 
 import { ToolType, HistoryOperation } from './types';
-import MergeTab from './components/MergeTab';
-import SplitTab from './components/SplitTab';
-import CompressTab from './components/CompressTab';
+
+// Lazy load tool tabs to split the large bundle and maximize initial page speed (Google Core Web Vitals)
+const MergeTab = React.lazy(() => import('./components/MergeTab'));
+const SplitTab = React.lazy(() => import('./components/SplitTab'));
+const CompressTab = React.lazy(() => import('./components/CompressTab'));
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ToolType>('merge');
@@ -252,9 +254,16 @@ export default function App() {
                 transition={{ duration: 0.18 }}
                 className="h-full"
               >
-                {activeTab === 'merge' && <MergeTab onSuccess={handleOperationSuccess} />}
-                {activeTab === 'split' && <SplitTab onSuccess={handleOperationSuccess} />}
-                {activeTab === 'compress' && <CompressTab onSuccess={handleOperationSuccess} />}
+                <React.Suspense fallback={
+                  <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+                    <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin mb-3"></div>
+                    <p className="text-sm font-medium font-sans">Loading workspace tools...</p>
+                  </div>
+                }>
+                  {activeTab === 'merge' && <MergeTab onSuccess={handleOperationSuccess} />}
+                  {activeTab === 'split' && <SplitTab onSuccess={handleOperationSuccess} />}
+                  {activeTab === 'compress' && <CompressTab onSuccess={handleOperationSuccess} />}
+                </React.Suspense>
               </motion.div>
             </AnimatePresence>
           </div>

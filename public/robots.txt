@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap URL for indexation
+Sitemap: https://pdf-converter-suite.vercel.app/sitemap.xml

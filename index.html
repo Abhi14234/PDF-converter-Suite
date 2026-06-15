@@ -10,7 +10,8 @@
     <meta name="keywords" content="pdf converter, free pdf converter, merge pdf, split pdf, compress pdf, docx to pdf, convert image to pdf, compress pdf to 1mb, compress pdf to 500kb, safe pdf tools, offline pdf generator, client-side pdf" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="PDFFlow Suite" />
-    <link rel="canonical" href="https://ai.studio/build" />
+    <!-- IMPORTANT: Replace the URL below with your actual production domain name (e.g., https://pdfflow.com) to prevent Google from ignoring this site as a duplicate -->
+    <link rel="canonical" href="https://pdf-converter-suite.vercel.app/" />
 
     <!-- Open Graph (Facebook, LinkedIn, Discord) -->
     <meta property="og:locale" content="en_US" />
@@ -45,6 +46,48 @@
       },
       "description": "An offline, highly interactive HTML5 browser application for editing, split extracting, converting DOCX/images, and doing pass-based lossy/lossless file compression under strict government or application target sizes.",
       "featureList": "Drag & Drop PDF Merger, DOCX to Vector PDF parsing, JPG/PNG to PDF, Page Ranges Split Extractor, Smart Compressor under custom KB/MB targets"
+    }
+    </script>
+
+    <!-- Schema.org FAQPage JSON-LD Structured Data to boost rich snippet visibility in search results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How can I merge multiple PDFs, DOCX, and JPGs together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our PDF Merger supports instant on-the-fly client-side conversion. Simply drop mixed files (images like JPG/PNG, text sheets like DOCX, or direct PDFs) into the drag-drop bucket. The script automatically extracts high-fidelity elements and parses them page-by-page into a singular, unified vector PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my documents secure? Does PDFFlow upload files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "None. Zero files ever hit our server limits. All conversion engines, including DocxReader and canvas compressors, run inside your native browser runtime. You can even disconnect your internet entirely after launching the applet, and all functions will work 100% offline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the PDF splitter extract pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the Split segment, load your document and select whether you want to download a zip bundle of separate pages or extract unique ranges (e.g., Pages 1, 3-5). The underlying script parses selected page ranges and constructs a new optimized PDF container on-the-fly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does compression affect the vector quality of PDF text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No! Our compression algorithm isolates high-density raster elements (like embed images or screenshots) to optimize them, while carefully maintaining PDF structural text pathways, vector graphs, and font shapes at maximum crispness."
+          }
+        }
+      ]
     }
     </script>
 
