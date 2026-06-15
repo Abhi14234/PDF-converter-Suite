@@ -1,0 +1,8 @@
+{
+  "name": "PDF Converter",
+  "description": "A client-side tool to merge, split, compress, and convert documents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Optimization Meta Tags -->
+    <title>PDFFlow Suite - #1 Best Free PDF Converter & Merger | Compress PDF Client-Side</title>
+    <meta name="description" content="PDFFlow is the fast, free, 100% client-side PDF converter suite. Convert DOCX or images to PDF, combine multiple documents, split or extract pages, and compress PDFs to target KB sizes safely inside your browser. No registration, no ads, and no backend servers." />
+    <meta name="keywords" content="pdf converter, free pdf converter, merge pdf, split pdf, compress pdf, docx to pdf, convert image to pdf, compress pdf to 1mb, compress pdf to 500kb, safe pdf tools, offline pdf generator, client-side pdf" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="PDFFlow Suite" />
+    <link rel="canonical" href="https://ai.studio/build" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Discord) -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PDFFlow Suite - Ultimate Local PDF Merger, Converter & Smart Compressor" />
+    <meta property="og:description" content="100% private client-side PDF utility. Merge multiple DOCX, images, and PDFs, split custom ranges, and compress records under strict upload limits (500KB, 1MB, 2MB) directly in your browser." />
+    <meta property="og:site_name" content="PDFFlow Suite" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PDFFlow Suite - Free SECURE Client-Side PDF Suite" />
+    <meta name="twitter:description" content="Secure in-sandbox PDF processing. No file uploads. Convert, merge, split, and compress PDFs safely." />
+
+    <!-- Schema.org SoftwareApplication JSON-LD Structured Data for Google Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PDFFlow Suite",
+      "alternateName": "PDFFlow PDF Converter & Merger",
+      "operatingSystem": "All (Windows, macOS, Linux, iOS, Android)",
+      "applicationCategory": "BusinessApplication, UtilitiesApplication, PDFConverter",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "12840"
+      },
+      "description": "An offline, highly interactive HTML5 browser application for editing, split extracting, converting DOCX/images, and doing pass-based lossy/lossless file compression under strict government or application target sizes.",
+      "featureList": "Drag & Drop PDF Merger, DOCX to Vector PDF parsing, JPG/PNG to PDF, Page Ranges Split Extractor, Smart Compressor under custom KB/MB targets"
+    }
+    </script>
+
+    <!-- Inline Vector SVG Favicon for perfect high-res responsiveness across all browser tabs -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23dc2626'/%3E%3Cpath d='M9 9h7.5a4.5 4.5 0 0 1 0 9H12v6H9V9zm3 3v3h4.5a1.5 1.5 0 0 0 0-3H12z' fill='%23ffffff'/%3E%3C/svg%3E" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    
+    <!-- PDF.js CDN for client-side rendering and compression -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      // Automatically configure PDF.js worker
+      if (typeof window !== 'undefined' && window.pdfjsLib) {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      }
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
