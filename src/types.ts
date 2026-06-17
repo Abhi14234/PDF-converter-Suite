@@ -1,4 +1,4 @@
-export type ToolType = 'merge' | 'split' | 'compress';
+export type ToolType = 'merge' | 'split' | 'compress' | 'photo';
 
 export interface UploadedFile {
   id: string;

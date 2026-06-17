@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   FileText, Layers, Scissors, Percent, Sparkles, 
-  History, Download, ArrowRight, CheckCircle2, Award, Info
+  History, Download, ArrowRight, CheckCircle2, Award, Info,
+  Crop
 } from 'lucide-react';
 
 import { ToolType, HistoryOperation } from './types';
@@ -11,6 +12,7 @@ import { ToolType, HistoryOperation } from './types';
 const MergeTab = React.lazy(() => import('./components/MergeTab'));
 const SplitTab = React.lazy(() => import('./components/SplitTab'));
 const CompressTab = React.lazy(() => import('./components/CompressTab'));
+const PhotoConverterTab = React.lazy(() => import('./components/PhotoConverterTab'));
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ToolType>('merge');
@@ -188,13 +190,13 @@ export default function App() {
         <div id="tool-workspace" className="bg-white border border-slate-200 rounded-[32px] shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col min-h-[500px]">
           
           {/* Tabs Navigation Strip */}
-          <nav id="tool-navigator-strip" className="border-b border-slate-200 bg-slate-50/50 p-2 grid grid-cols-3 gap-1">
+          <nav id="tool-navigator-strip" className="border-b border-slate-200 bg-slate-50/50 p-2 grid grid-cols-2 md:grid-cols-4 gap-1">
             
             {/* Tab: Merge tool */}
             <button
               id="tab-merge-trigger"
               onClick={() => { setActiveTab('merge'); setErrorMsg?.(null); }}
-              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none ${
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none cursor-pointer ${
                 activeTab === 'merge'
                   ? 'bg-red-50 text-red-600 border border-red-100 shadow-sm font-bold'
                   : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
@@ -211,9 +213,9 @@ export default function App() {
             <button
               id="tab-split-trigger"
               onClick={() => { setActiveTab('split'); setErrorMsg?.(null); }}
-              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none ${
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none cursor-pointer ${
                 activeTab === 'split'
-                  ? 'bg-red-50 text-red-600 border border-red-100 shadow-sm font-bold'
+                  ? 'bg-red-50 text-red-655 border border-red-100 shadow-sm font-bold'
                   : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
               }`}
             >
@@ -228,9 +230,9 @@ export default function App() {
             <button
               id="tab-compress-trigger"
               onClick={() => { setActiveTab('compress'); setErrorMsg?.(null); }}
-              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none ${
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none cursor-pointer ${
                 activeTab === 'compress'
-                  ? 'bg-red-50 text-red-600 border border-red-100 shadow-sm font-bold'
+                  ? 'bg-red-50 text-red-655 border border-red-100 shadow-sm font-bold'
                   : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
               }`}
             >
@@ -238,6 +240,23 @@ export default function App() {
               <div className="text-center sm:text-left">
                 <span className="block leading-tight font-semibold">Fit Upload limits</span>
                 <span className="hidden sm:block text-[10px] text-slate-400 font-sans mt-0.5">Compress & Resize to KB</span>
+              </div>
+            </button>
+
+            {/* Tab: Photo tool */}
+            <button
+              id="tab-photo-trigger"
+              onClick={() => { setActiveTab('photo'); setErrorMsg?.(null); }}
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 py-3 rounded-xl transition-all font-sans text-xs sm:text-sm selection:bg-transparent select-none cursor-pointer ${
+                activeTab === 'photo'
+                  ? 'bg-red-50 text-red-655 border border-red-100 shadow-sm font-bold'
+                  : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
+              }`}
+            >
+              <Crop className={`w-4 h-4 shrink-0 transition-all ${activeTab === 'photo' ? 'text-red-550' : 'text-slate-400'}`} />
+              <div className="text-center sm:text-left">
+                <span className="block leading-tight font-semibold">Photo & Signature</span>
+                <span className="hidden sm:block text-[10px] text-slate-400 font-sans mt-0.5">Govt portal optimizer</span>
               </div>
             </button>
 
@@ -263,6 +282,7 @@ export default function App() {
                   {activeTab === 'merge' && <MergeTab onSuccess={handleOperationSuccess} />}
                   {activeTab === 'split' && <SplitTab onSuccess={handleOperationSuccess} />}
                   {activeTab === 'compress' && <CompressTab onSuccess={handleOperationSuccess} />}
+                  {activeTab === 'photo' && <PhotoConverterTab onSuccess={handleOperationSuccess} />}
                 </React.Suspense>
               </motion.div>
             </AnimatePresence>
@@ -332,8 +352,12 @@ export default function App() {
                   a: "Under the Split segment, load your document and select whether you want to download a zip bundle of separate pages or extract unique ranges (e.g., Pages 1, 3-5). The underlying script parses selected page ranges and constructs a new optimized PDF container on-the-fly."
                 },
                 {
-                  q: "Does compression affect the vector quality of PDF text?",
-                  a: "No! Our compression algorithm isolates high-density raster elements (like embed images or screenshots) to optimize them, while carefully maintaining PDF structural text pathways, vector graphs, and font shapes at maximum crispness."
+                  q: "Does My vector PDF text quality degrade when I compress?",
+                  a: "No! Our compression algorithm isolates high-density raster elements (like embedded images or screenshots) to optimize them, while carefully maintaining PDF structural text pathways, vector graphs, and font shapes at maximum crispness."
+                },
+                {
+                  q: "How does the Photo Converter fit images to government specifications?",
+                  a: "Under the Photo & Signature tab, select your target country preset (e.g. US Visa, Indian Passport) or enter custom dimensions in cm, mm, inches, or pixels. Set the required DPI (typically 200 or 300 DPI) and set the file limit in KB. The tool auto-crops and applies high-speed binary quality compression on-the-fly to output the perfect image size."
                 }
               ].map((faq, idx) => {
                 const isOpen = faqOpenIndex === idx;
@@ -401,6 +425,7 @@ export default function App() {
                   const isMerge = op.tool === 'merge';
                   const isSplit = op.tool === 'split';
                   const isCompress = op.tool === 'compress';
+                  const isPhoto = op.tool === 'photo';
 
                   return (
                     <div key={op.id} className="p-3.5 flex items-center justify-between hover:bg-slate-50/30 transition-colors">
@@ -410,13 +435,14 @@ export default function App() {
                           {isMerge && <Layers className="w-4 h-4 text-red-500" />}
                           {isSplit && <Scissors className="w-4 h-4 text-red-500" />}
                           {isCompress && <Percent className="w-4 h-4 text-red-500" />}
+                          {isPhoto && <Crop className="w-4 h-4 text-red-500" />}
                         </div>
 
                         <div className="min-w-0">
                           <p className="font-semibold text-slate-700 text-sm truncate">{op.outputName}</p>
                           <div className="flex items-center gap-2.5 text-xs text-slate-400 font-mono mt-0.5">
                             <span className="text-slate-500 uppercase font-semibold text-[9px] tracking-wider px-1.5 py-0.5 rounded-full bg-slate-100 border font-sans">
-                              {op.tool === 'merge' ? 'Merge Converted' : op.tool === 'split' ? 'Split File' : 'Compaction'}
+                              {op.tool === 'merge' ? 'Merge Converted' : op.tool === 'split' ? 'Split File' : op.tool === 'compress' ? 'Compaction' : 'Photo Optimizer'}
                             </span>
                             <span>•</span>
                             <span>{formatBytes(op.outputSize)}</span>
