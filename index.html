@@ -110,7 +110,47 @@
     </script>
   </head>
   <body class="bg-slate-50 text-slate-800">
-    <div id="root"></div>
+    <div id="root">
+      <!-- SEO Fallback Content for Crawlers & Search Engines (Cleared & replaced by React on page load) -->
+      <div style="padding: 2rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #334155;">
+        <header style="text-align: center; margin-bottom: 2rem;">
+          <h1 style="color: #0f172a; font-size: 2.25rem; margin-bottom: 0.5rem;">PDFFlow Suite</h1>
+          <p style="font-size: 1.125rem; color: #dc2626; font-weight: 600; margin-top: 0;">#1 Best Free PDF Converter, Merger & Smart Compressor</p>
+          <p style="font-weight: 500;">100% Client-Side Private Processing • No file uploads • Fully Secure</p>
+        </header>
+        <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0;" />
+        <main>
+          <h2 style="color: #0f172a; font-size: 1.5rem;">Core Features:</h2>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem;">
+            <li style="margin-bottom: 0.75rem;"><strong>Convert &amp; Merge PDF:</strong> Drag and drop multiple DOCX, JPG, PNG, and PDF files to stitch them together into a high-fidelity vector PDF.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Split PDF Pages:</strong> Load your PDF document to split custom page ranges or extract individual pages into a ZIP bundle.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Compress PDF to target size:</strong> Shrink document sizes down to 500KB, 1MB, or 2MB to meet strict upload limits for government, university, or application portals.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Photo &amp; Signature Resizer:</strong> Crop and scale files in cm, mm, or pixels under custom DPI targets for online forms.</li>
+          </ul>
+          
+          <h2 style="color: #0f172a; font-size: 1.5rem;">Why is PDFFlow different?</h2>
+          <p style="margin-bottom: 2rem;">Standard online converters send your confidential files to remote databases. PDFFlow runs entirely inside your browser's sandboxed memory using advanced local scripts. None of your data ever leaves your computer, making it 100% secure, private, and compatible with offline usage.</p>
+          
+          <h2 style="color: #0f172a; font-size: 1.5rem;">Frequently Asked Questions (FAQ)</h2>
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 0.25rem;">How can I merge multiple PDFs, DOCX, and JPGs together?</h3>
+            <p style="margin-top: 0; font-size: 0.95rem;">Our PDF Merger supports instant on-the-fly client-side conversion. Simply drop mixed files (images like JPG/PNG, text sheets like DOCX, or direct PDFs) into the drag-drop bucket. The app automatically extracts elements and parses them page-by-page into a unified vector PDF.</p>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 0.25rem;">Are my documents secure? Does PDFFlow upload files?</h3>
+            <p style="margin-top: 0; font-size: 0.95rem;">Zero files ever hit our servers. All conversion engines, including DocxReader and canvas compressors, run inside your native browser runtime. You can even disconnect your internet entirely after launching the applet, and all functions will work 100% offline.</p>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 0.25rem;">How does the PDF splitter extract pages?</h3>
+            <p style="margin-top: 0; font-size: 0.95rem;">Under the Split segment, load your document and select whether you want to download a zip bundle of separate pages or extract unique ranges (e.g., Pages 1, 3-5). The underlying script parses selected page ranges and constructs a new optimized PDF container on-the-fly.</p>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 0.25rem;">Does compression affect the vector quality of PDF text?</h3>
+            <p style="margin-top: 0; font-size: 0.95rem;">No! Our compression algorithm isolates high-density raster elements (like embedded images or screenshots) to optimize them, while carefully maintaining PDF structural text pathways, vector graphs, and font shapes at maximum crispness.</p>
+          </div>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
